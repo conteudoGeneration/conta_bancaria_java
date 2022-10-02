@@ -3,7 +3,6 @@ package conta;
 import java.io.IOException;
 import java.util.Scanner;
 
-import conta.model.Conta;
 import conta.model.ContaCorrente;
 import conta.model.ContaPoupanca;
 import conta.util.Cores;
@@ -15,13 +14,10 @@ public class Menu {
 		
 		int opcao;
 		
-		Conta c1 = new Conta(1, 123, 1, "João da Silva", 1000f);
-		c1.visualizar();	
-
-		ContaCorrente cc1 = new ContaCorrente(2, 124, 1, "João da Silva", 1000f, 100.0f);
+		ContaCorrente cc1 = new ContaCorrente(1, 124, 1, "João da Silva", 1000f, 100.0f);
 		cc1.visualizar();		
 
-		ContaPoupanca cp1 = new ContaPoupanca(3, 125, 2, "Juliana Ramos", 8000f, 15);
+		ContaPoupanca cp1 = new ContaPoupanca(2, 125, 2, "Juliana Ramos", 8000f, 15);
 		cp1.visualizar();
 
 		while(true) {
