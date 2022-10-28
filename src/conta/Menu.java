@@ -162,11 +162,6 @@ public class Menu {
 				case 6:
 					System.out.println(Cores.TEXT_WHITE + "Saque\n\n");
 
-					System.out.println("Digite o número da conta: ");
-					numero = leia.nextInt();
-						
-					contas.deletar(numero);
-
                     keyPress();
 					break;
 				case 7:
