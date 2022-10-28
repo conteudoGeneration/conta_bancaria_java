@@ -15,9 +15,9 @@ public class Menu {
         Scanner leia = new Scanner(System.in);
 		
 		// Variáveis de entrada de dados
-		int opcao, numero, agencia, tipo, aniversario;
+		int opcao, numero, agencia, tipo, aniversario, numeroDestino;
 		String titular;
-		float saldo, limite; 
+		float saldo, limite, valor; 
 
 		//Instância da Classe ContaController
 		ContaController contas = new ContaController();
@@ -162,21 +162,39 @@ public class Menu {
 				case 6:
 					System.out.println(Cores.TEXT_WHITE + "Saque\n\n");
 
-					System.out.println("Digite o número da conta: ");
+					System.out.println("Digite o Numero da conta: ");
 					numero = leia.nextInt();
-						
-					contas.deletar(numero);
+					System.out.println("Digite o Valor do Saque (R$): ");
+					valor = leia.nextFloat();
+					
+					contas.sacar(numero, valor);
 
                     keyPress();
 					break;
 				case 7:
 					System.out.println(Cores.TEXT_WHITE + "Depósito\n\n");
 					
+					System.out.println("Digite o Numero da conta: ");
+					numero = leia.nextInt();
+					System.out.println("Digite o Valor do Depósito (R$): ");
+					valor = leia.nextFloat();
+					
+					contas.depositar(numero, valor);
+
                     keyPress();
 					break;
 				case 8:
 					System.out.println(Cores.TEXT_WHITE + "Transferência entre Contas\n\n");
 					
+					System.out.println("Digite o Numero da Conta de Origem: ");
+					numero = leia.nextInt();
+					System.out.println("Digite o Numero da Conta de Destino: ");
+					numeroDestino = leia.nextInt();
+					System.out.println("Digite o Valor da Transferência (R$): ");
+					valor = leia.nextFloat();
+					
+					contas.transferir(numero, numeroDestino, valor);
+
                     keyPress();
 					break;
 				default:
