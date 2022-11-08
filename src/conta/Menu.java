@@ -68,7 +68,6 @@ public class Menu {
 			}catch(InputMismatchException e){
 				System.out.println("\nDigite valores inteiros!");
 				leia.nextLine();
-			}finally {
 				opcao=0;
 			}
 				
