@@ -40,7 +40,6 @@ public class ContaController implements ContaRepository {
      * */
     @Override
     public void cadastrar(Conta conta) {
-        conta.setNumero(gerarNumero());
 		listaContas.add(conta);
 		System.out.println("\nA Conta número: " + conta.getNumero() + " foi criada com sucesso!");
     }
