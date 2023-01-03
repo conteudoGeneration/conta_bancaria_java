@@ -79,7 +79,7 @@ public class Menu {
 				
 			switch (opcao) {
 				case 1:
-					System.out.println(Cores.TEXT_WHITE + "Criar Conta Corrente\n\n");
+					System.out.println(Cores.TEXT_WHITE + "Criar Conta\n\n");
 				
 					keyPress();
                     break;
