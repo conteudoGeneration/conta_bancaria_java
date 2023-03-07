@@ -11,6 +11,7 @@ public class ContaController implements ContaRepository {
      *  Collection listaContas contendo Objetos do tipo Conta
      * */
     private ArrayList<Conta> listaContas = new ArrayList<Conta>();
+    int numero = 0;
     
     /**
      *  Procurar Conta por numero
@@ -40,7 +41,6 @@ public class ContaController implements ContaRepository {
      * */
     @Override
     public void cadastrar(Conta conta) {
-        conta.setNumero(gerarNumero());
 		listaContas.add(conta);
 		System.out.println("\nA Conta número: " + conta.getNumero() + " foi criada com sucesso!");
     }
@@ -99,7 +99,7 @@ public class ContaController implements ContaRepository {
 	 * Método para gerar automaticamente o Número da Conta
 	 * */
 	public int gerarNumero() {
-		return listaContas.size() + 1;
+		return ++ numero;
 	}
 
     /**
