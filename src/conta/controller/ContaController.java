@@ -11,6 +11,7 @@ public class ContaController implements ContaRepository {
      *  Collection listaContas contendo Objetos do tipo Conta
      * */
     private ArrayList<Conta> listaContas = new ArrayList<Conta>();
+	int numero = 0;
     
     /**
      *  Procurar Conta por numero
@@ -40,7 +41,6 @@ public class ContaController implements ContaRepository {
      * */
     @Override
     public void cadastrar(Conta conta) {
-        conta.setNumero(gerarNumero());
 		listaContas.add(conta);
 		System.out.println("\nA Conta número: " + conta.getNumero() + " foi criada com sucesso!");
     }
@@ -75,11 +75,11 @@ public class ContaController implements ContaRepository {
 
     @Override
     public void sacar(int numero, float valor) {
-        var buscaConta = buscarNaCollection(numero);
+        var conta = buscarNaCollection(numero);
 		
-		if (buscaConta != null) {
+		if (conta != null) {
 			
-			if(listaContas.get(listaContas.indexOf(buscaConta)).sacar(valor) == true)
+			if(conta.sacar(valor) == true)
 				System.out.println("\nO Saque na Conta numero: " + numero + " foi efetuado com sucesso!");		
 		
 		}else
@@ -89,11 +89,10 @@ public class ContaController implements ContaRepository {
 
     @Override
     public void depositar(int numero, float valor) {
-        var buscaConta = buscarNaCollection(numero);
+        var conta = buscarNaCollection(numero);
 		
-		if (buscaConta != null) {
-			var indiceConta = listaContas.indexOf(buscaConta);
-			listaContas.get(indiceConta).depositar(valor);
+		if (conta != null) {
+			conta.depositar(valor);
 			System.out.println("\nO Depósito na Conta numero: " + numero + " foi efetuado com sucesso!");
 		}else
 			System.out.println("\nA Conta numero: " + numero + " não foi encontrada ou a Conta destino não é uma Conta Corrente!");
@@ -101,13 +100,13 @@ public class ContaController implements ContaRepository {
 
     @Override
     public void transferir(int numeroOrigem, int numeroDestino, float valor) {
-        var buscaContaOrigem = buscarNaCollection(numeroOrigem);
-		var buscaContaDestino = buscarNaCollection(numeroDestino);
+        var contaOrigem = buscarNaCollection(numeroOrigem);
+		var contaDestino = buscarNaCollection(numeroDestino);
 
-		if (buscaContaOrigem != null && buscaContaDestino != null) {
+		if (contaOrigem != null && contaDestino != null) {
 							
-				if (listaContas.get(listaContas.indexOf(buscaContaOrigem)).sacar(valor) == true) {
-					listaContas.get(listaContas.indexOf(buscaContaDestino)).depositar(valor);
+				if (contaOrigem.sacar(valor) == true) {
+					contaDestino.depositar(valor);
 					System.out.println("\nA Transferência foi efetuado com sucesso!");
 				}
 		}else
@@ -122,7 +121,9 @@ public class ContaController implements ContaRepository {
 	 * Método para gerar automaticamente o Número da Conta
 	 * */
 	public int gerarNumero() {
-		return listaContas.size() + 1;
+				
+		return ++ numero;
+
 	}
 
     /**
