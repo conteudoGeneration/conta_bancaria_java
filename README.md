@@ -1,18 +1,58 @@
-## Getting Started
+# Projeto Conta Bancária - POO - Java
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+<br />
 
-## Folder Structure
+<div align="center">
+   <img src="https://i.imgur.com/IaD4lwg.png" title="source: imgur.com" width="25%"/>
+</div>
 
-The workspace contains two folders by default, where:
+<br /><br />
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Diagrama de Classes
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+```mermaid
+classDiagram
+class Conta {
+  - numero : int
+  - agencia : int
+  - tipo : int
+  - titular : String
+  - saldo : float
+  + int getNumero()
+  + int getAgencia()
+  + int getTipo()
+  + String getTitular()
+  + float getSaldo()
+  + void setNumero(int numero)
+  + void setAgencia(int agencia)
+  + void setTipo(int tipo)
+  + void setTitular(String titular)
+  + void setSaldo(float saldo)
+  + boolean sacar(float valor)
+  + void depositar(float valor)
+  + void visualizar()
+}
+class ContaCorrente {
+  - limite : float
+  + float getLimite()
+  + void setLimite(float limite)
+  + boolean sacar(float valor)
+  + void visualizar()
+}
+class ContaPoupanca {
+  - aniversario : int
+  + int getAniversario()
+  + void setAniversario(int aniversario)
+  + void visualizar()
+}
+ContaCorrente --> Conta
+ContaPoupanca --> Conta
+```
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+<br /><br />
 
-## Dependency Management
+## Print da Tela
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+<div align="center">
+   <img src="https://i.imgur.com/WtJBivM.png" title="source: imgur.com" />
+</div>
