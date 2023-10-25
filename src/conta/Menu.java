@@ -71,6 +71,7 @@ public class Menu {
 
 			if (opcao == 9) {
 				System.out.println(Cores.TEXT_WHITE_BOLD + "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
+				sobre();
 				leia.close();
 				System.exit(0);
 			}
@@ -178,58 +179,66 @@ public class Menu {
 					keyPress();
 					break;
 				case 6:
-				System.out.println(Cores.TEXT_WHITE + "Saque\n\n");
+					System.out.println(Cores.TEXT_WHITE + "Saque\n\n");
 
-				System.out.println("Digite o Numero da conta: ");
-				numero = leia.nextInt();
-				
-				do {
-					System.out.println("Digite o Valor do Saque (R$): ");
-					valor = leia.nextFloat();
-				}while(valor <= 0);
+					System.out.println("Digite o Numero da conta: ");
+					numero = leia.nextInt();
 
-				contas.sacar(numero, valor);
+					do {
+						System.out.println("Digite o Valor do Saque (R$): ");
+						valor = leia.nextFloat();
+					} while (valor <= 0);
 
-				keyPress();
-				break;
-			case 7:
-				System.out.println(Cores.TEXT_WHITE + "Depósito\n\n");
+					contas.sacar(numero, valor);
 
-				System.out.println("Digite o Numero da conta: ");
-				numero = leia.nextInt();
-				
-				do {
-					System.out.println("Digite o Valor do Depósito (R$): ");
-					valor = leia.nextFloat();
-				}while(valor <= 0);
+					keyPress();
+					break;
+				case 7:
+					System.out.println(Cores.TEXT_WHITE + "Depósito\n\n");
 
-				contas.depositar(numero, valor);
-				
-				keyPress();
-				break;
-			case 8:
-				System.out.println(Cores.TEXT_WHITE + "Transferência entre Contas\n\n");
+					System.out.println("Digite o Numero da conta: ");
+					numero = leia.nextInt();
 
-				System.out.println("Digite o Numero da Conta de Origem: ");
-				numero = leia.nextInt();
-				System.out.println("Digite o Numero da Conta de Destino: ");
-				numeroDestino = leia.nextInt();
-				
-				do {
-					System.out.println("Digite o Valor da Transferência (R$): ");
-					valor = leia.nextFloat();
-				}while(valor <= 0);
-				
-				contas.transferir(numero, numeroDestino, valor);
-				
-				keyPress();
-				break;
-			default:
-				System.out.println(Cores.TEXT_RED_BOLD + "\nOpção Inválida!\n" + Cores.TEXT_RESET);
-				keyPress();
-				break;
+					do {
+						System.out.println("Digite o Valor do Depósito (R$): ");
+						valor = leia.nextFloat();
+					} while (valor <= 0);
+
+					contas.depositar(numero, valor);
+
+					keyPress();
+					break;
+				case 8:
+					System.out.println(Cores.TEXT_WHITE + "Transferência entre Contas\n\n");
+
+					System.out.println("Digite o Numero da Conta de Origem: ");
+					numero = leia.nextInt();
+					System.out.println("Digite o Numero da Conta de Destino: ");
+					numeroDestino = leia.nextInt();
+
+					do {
+						System.out.println("Digite o Valor da Transferência (R$): ");
+						valor = leia.nextFloat();
+					} while (valor <= 0);
+
+					contas.transferir(numero, numeroDestino, valor);
+
+					keyPress();
+					break;
+				default:
+					System.out.println(Cores.TEXT_RED_BOLD + "\nOpção Inválida!\n" + Cores.TEXT_RESET);
+					keyPress();
+					break;
 			}
 		}
+	}
+
+	public static void sobre() {
+		System.out.println("\n*********************************************************");
+		System.out.println("Projeto Desenvolvido por: ");
+		System.out.println("Generation Brasil - generation@generation.org");
+		System.out.println("github.com/conteudoGeneration");
+		System.out.println("*********************************************************");
 	}
 
 	public static void keyPress() {
