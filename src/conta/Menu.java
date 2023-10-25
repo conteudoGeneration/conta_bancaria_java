@@ -35,6 +35,7 @@ public class Menu {
 
 			if (opcao == 9) {
 				System.out.println("\nBanco do Brazil com Z - O seu Futuro começa aqui!");
+				sobre();
 				leia.close();
 				System.exit(0);
 			}
@@ -77,6 +78,14 @@ public class Menu {
 					break;
 			}
 		}
+	}
+
+	public static void sobre() {
+		System.out.println("\n*********************************************************");
+		System.out.println("Projeto Desenvolvido por: ");
+		System.out.println("Generation Brasil - generation@generation.org");
+		System.out.println("github.com/conteudoGeneration");
+		System.out.println("*********************************************************");
 	}
 
 }
