@@ -42,7 +42,7 @@ public class Menu {
 
 			switch (opcao) {
 				case 1:
-					System.out.println("Criar Conta Corrente\n\n");
+					System.out.println("Criar Conta\n\n");
 
 					break;
 				case 2:
