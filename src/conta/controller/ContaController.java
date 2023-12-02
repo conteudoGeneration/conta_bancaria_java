@@ -138,18 +138,5 @@ public class ContaController implements ContaRepository {
 		
 		return null;
 	}
-
-	/**
-	 * Método para retornar o Tipo da Conta
-	 * */
-	public int retornaTipo(int numero) {
-		for (var conta : listaContas) {
-			if (conta.getNumero() == numero) {
-				return conta.getTipo();
-			}
-		}
-		
-		return 0;
-	}
     
 }

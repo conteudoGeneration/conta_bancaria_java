@@ -134,7 +134,9 @@ public class Menu {
 					System.out.println("Digite o número da conta: ");
 					numero = leia.nextInt();
 
-					if (contas.buscarNaCollection(numero) != null) {
+					var buscaConta = contas.buscarNaCollection(numero);
+
+					if (buscaConta != null) {
 
 						System.out.println("Digite o Numero da Agência: ");
 						agencia = leia.nextInt();
@@ -145,7 +147,7 @@ public class Menu {
 						System.out.println("Digite o Saldo da Conta (R$): ");
 						saldo = leia.nextFloat();
 
-						tipo = contas.retornaTipo(numero);
+						tipo = buscaConta.getTipo();
 
 						switch (tipo) {
 							case 1 -> {
